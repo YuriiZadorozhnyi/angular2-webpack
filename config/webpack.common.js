@@ -5,7 +5,7 @@ var helpers = require('./helpers');
 
 module.exports = {
   entry: {
-    'polyfills': './src/polyfills.js',               // extension ts changed on js 
+    'polyfills': './src/polyfills.ts',               // extension ts changed on js 
     'vendor': './src/vendor.ts',
     'app': './src/main.ts'
   },
@@ -32,6 +32,10 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'file-loader?name=assets/[name].[hash].[ext]'
+      },
+      {                                                                                     // json loader added ????
+        test: /\.json$/,                                                                    // npm install --save-dev json-loader
+        use: 'json-loader'
       },
       {
         test: /\.css$/,
